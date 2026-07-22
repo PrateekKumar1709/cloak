@@ -1,0 +1,23 @@
+bin/
+dist/
+*.exe
+*.test
+.DS_Store
+cloak.yaml
+.e2e-cloak.yaml
+.e2e-lemonade.yaml
+.e2e-*.yaml
+.e2e-*.log
+.lemonade-server.log
+.lemonade-server.pid
+.env
+*.db
+.idea/
+.vscode/
+# keep tools/lemonade layout; ignore large binary if re-downloaded elsewhere
+# Lemonade embeddable binaries (re-download via releases if missing)
+tools/lemonade/lemond
+tools/lemonade/lemonade
+!tools/lemonade/resources/
+eval/results-*.txt
+eval/results-*.json

@@ -1,0 +1,15 @@
+{"id":"d1","text":"Please page oncall and email sarah.chen@acme.io about the outage on db-prod-03.","expect":["EMAIL","INTERNAL_HOSTNAME"]}
+{"id":"d2","text":"Rotate this ASAP: AKIAIOSFODNN7EXAMPLE and ghp_exampleexampleexampleexample00000001","expect":["AWS_KEY","GITHUB_TOKEN"]}
+{"id":"d3","text":"Customer John Smith SSN 219-09-9999 card 4111111111111111","expect":["PERSON","SSN","CREDIT_CARD"]}
+{"id":"d4","text":"Slack bot token \u0078oxb-0000000000-exampleexampleexample00 and sk_live_exampleexampleexample00","expect":["SLACK_TOKEN","STRIPE_KEY"]}
+{"id":"d5","text":"Connect postgres://admin:SuperSecret!@10.0.1.15:5432/app","expect":["URL_CREDENTIAL","IP"]}
+{"id":"d6","text":"Ping Ada Lovelace at ada@analeng.org regarding Project Nightingale.","expect":["PERSON","EMAIL","WATCHLIST"]}
+{"id":"d7","text":"OpenAI key sk-exampleexampleexampleexample000ABCD leaked in CI log.","expect":["OPENAI_KEY"]}
+{"id":"d8","text":"Call +1 (415) 555-2671 and ask for Grace Hopper at Naval Research.","expect":["PHONE","PERSON","ORG"]}
+{"id":"d9","text":"Deploy to host api-internal-7 behind the VPN before Friday.","expect":["INTERNAL_HOSTNAME"]}
+{"id":"d10","text":"JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U in Authorization header.","expect":["JWT"]}
+{"id":"d11","text":"No secrets here, just a status update on the weekly sprint.","expect":[]}
+{"id":"d12","text":"Mail finance@contoso.com about invoice #4421 for Contoso Ltd.","expect":["EMAIL","ORG"]}
+{"id":"d13","text":"-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEA0Z3VS5JJcds3xfn/ygWyF8PbnGy0AH8=\n-----END RSA PRIVATE KEY-----","expect":["PRIVATE_KEY"]}
+{"id":"d14","text":"Ask Sarah Chen on host db-prod-03 about Project Nightingale at Acme Corp.","expect":["PERSON","INTERNAL_HOSTNAME","WATCHLIST","ORG"]}
+{"id":"d15","text":"Stripe test key sk_test_exampleexampleexample00 and phone 212-555-0199.","expect":["STRIPE_KEY","PHONE"]}

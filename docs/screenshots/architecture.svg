@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'DM Sans','Segoe UI',system-ui,Arial,sans-serif">
+  <defs>
+    <radialGradient id="glow" cx="82%" cy="10%" r="60%">
+      <stop offset="0%" stop-color="#c4f042" stop-opacity="0.10"/>
+      <stop offset="60%" stop-color="#2a5a3c" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#0e1410" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c2a21"/>
+      <stop offset="100%" stop-color="#152019"/>
+    </linearGradient>
+    <marker id="aAccent" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#c4f042"/>
+    </marker>
+    <marker id="aMuted" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#8aa193"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="720" fill="#0e1410"/>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+
+  <text x="48" y="52" fill="#e8f0ea" font-size="26" font-weight="700" letter-spacing="-0.5">Cloak: the privacy layer for AI</text>
+  <text x="48" y="78" fill="#8aa193" font-size="15">Powered by Lemonade, on your own hardware</text>
+
+  <!-- YOUR MACHINE boundary -->
+  <rect x="34" y="104" width="838" height="576" rx="22" fill="none" stroke="#8fb32e" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="7 6"/>
+  <text x="56" y="134" fill="#c4f042" font-size="13" font-weight="700" letter-spacing="1.5" font-family="'IBM Plex Mono',ui-monospace,monospace">YOUR MACHINE</text>
+  <text x="182" y="134" fill="#8aa193" font-size="12.5">raw PII &amp; secrets stay local by default</text>
+
+  <!-- Client card -->
+  <rect x="64" y="270" width="196" height="236" rx="14" fill="url(#panel)" stroke="#2a3d31"/>
+  <text x="82" y="300" fill="#8aa193" font-size="12" font-weight="600" letter-spacing="1" font-family="'IBM Plex Mono',ui-monospace,monospace">YOUR APPS</text>
+  <g fill="#e8f0ea" font-size="15">
+    <text x="82" y="332">Cursor</text>
+    <text x="82" y="360">Claude Code</text>
+    <text x="82" y="388">OpenAI / Anthropic SDK</text>
+    <text x="82" y="416">curl &#183; agents</text>
+  </g>
+  <line x1="82" y1="436" x2="242" y2="436" stroke="#2a3d31"/>
+  <text x="82" y="462" fill="#8aa193" font-size="11.5" font-family="'IBM Plex Mono',ui-monospace,monospace">OPENAI_BASE_URL</text>
+  <text x="82" y="480" fill="#c4f042" font-size="11.5" font-family="'IBM Plex Mono',ui-monospace,monospace">&#8594; localhost:7777</text>
+
+  <path d="M260,388 L322,388" fill="none" stroke="#8aa193" stroke-width="2" marker-end="url(#aMuted)"/>
+
+  <!-- Cloak Gateway panel -->
+  <rect x="330" y="150" width="486" height="356" rx="16" fill="url(#panel)" stroke="#c4f042" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="352" y="182" fill="#c4f042" font-size="15" font-weight="700" letter-spacing="0.5" font-family="'IBM Plex Mono',ui-monospace,monospace">CLOAK GATEWAY</text>
+  <text x="800" y="182" fill="#8aa193" font-size="12" text-anchor="end" font-family="'IBM Plex Mono',ui-monospace,monospace">:7777</text>
+
+  <g font-size="13" font-weight="600">
+    <rect x="352" y="204" width="104" height="46" rx="9" fill="#24362b" stroke="#2a3d31"/>
+    <text x="404" y="226" fill="#e8f0ea" text-anchor="middle">Tier-1</text>
+    <text x="404" y="242" fill="#8aa193" text-anchor="middle" font-size="10.5" font-weight="400">regex &#183; valid.</text>
+
+    <rect x="470" y="204" width="120" height="46" rx="9" fill="#24362b" stroke="#8fb32e" stroke-opacity="0.5"/>
+    <text x="530" y="226" fill="#c4f042" text-anchor="middle">Tier-2 NER</text>
+    <text x="530" y="242" fill="#8aa193" text-anchor="middle" font-size="10.5" font-weight="400">Lemonade LLM</text>
+
+    <rect x="604" y="204" width="92" height="46" rx="9" fill="#24362b" stroke="#2a3d31"/>
+    <text x="650" y="226" fill="#e8f0ea" text-anchor="middle">Policy</text>
+    <text x="650" y="242" fill="#8aa193" text-anchor="middle" font-size="10.5" font-weight="400">redact/block</text>
+
+    <rect x="710" y="204" width="88" height="46" rx="9" fill="#24362b" stroke="#2a3d31"/>
+    <text x="754" y="226" fill="#e8f0ea" text-anchor="middle">Entity</text>
+    <text x="754" y="242" fill="#8aa193" text-anchor="middle" font-size="10.5" font-weight="400">map</text>
+  </g>
+
+  <g stroke="#8aa193" stroke-width="1.5" fill="none" marker-end="url(#aMuted)" opacity="0.8">
+    <path d="M456,227 L466,227"/>
+    <path d="M590,227 L600,227"/>
+    <path d="M696,227 L706,227"/>
+  </g>
+
+  <rect x="352" y="268" width="446" height="44" rx="9" fill="#0a100c" stroke="#2a3d31"/>
+  <text x="368" y="295" fill="#e8f0ea" font-size="13">Pseudonymize &#8594; consistent placeholders &#183; SSE-safe rehydrate</text>
+
+  <g font-size="11.5" font-family="'IBM Plex Mono',ui-monospace,monospace">
+    <rect x="352" y="326" width="112" height="26" rx="13" fill="#24362b" stroke="#2a3d31"/>
+    <text x="408" y="343" fill="#8aa193" text-anchor="middle">live dashboard</text>
+    <rect x="472" y="326" width="96" height="26" rx="13" fill="#24362b" stroke="#2a3d31"/>
+    <text x="520" y="343" fill="#8aa193" text-anchor="middle">audit log</text>
+    <rect x="576" y="326" width="104" height="26" rx="13" fill="#24362b" stroke="#2a3d31"/>
+    <text x="628" y="343" fill="#8aa193" text-anchor="middle">/metrics</text>
+  </g>
+
+  <path d="M573,378 L573,398" stroke="#c4f042" stroke-width="2" marker-end="url(#aAccent)"/>
+  <path d="M597,398 L597,378" stroke="#c4f042" stroke-width="2" marker-end="url(#aAccent)"/>
+
+  <!-- Lemonade local card -->
+  <rect x="352" y="400" width="446" height="88" rx="14" fill="#152019" stroke="#c4f042" stroke-opacity="0.6" stroke-width="1.5"/>
+  <rect x="368" y="416" width="164" height="24" rx="6" fill="#c4f042"/>
+  <text x="450" y="433" fill="#142014" font-size="12" font-weight="700" text-anchor="middle" font-family="'IBM Plex Mono',ui-monospace,monospace">LEMONADE &#183; LOCAL</text>
+  <text x="548" y="433" fill="#8aa193" font-size="12" font-family="'IBM Plex Mono',ui-monospace,monospace">NPU &#183; GPU &#183; Metal (auto)</text>
+  <g font-size="12.5" fill="#e8f0ea">
+    <text x="372" y="468">NER detection</text>
+    <text x="510" y="468">Whisper ASR</text>
+    <text x="648" y="468">Private answers</text>
+  </g>
+
+  <!-- Cloud model (outside machine) -->
+  <rect x="978" y="250" width="258" height="150" rx="16" fill="url(#panel)" stroke="#2a3d31"/>
+  <text x="1000" y="282" fill="#8aa193" font-size="12" font-weight="600" letter-spacing="1" font-family="'IBM Plex Mono',ui-monospace,monospace">CLOUD MODEL</text>
+  <text x="1214" y="282" fill="#8aa193" font-size="11" text-anchor="end">optional</text>
+  <text x="1000" y="322" fill="#e8f0ea" font-size="19" font-weight="700">GPT-4o &#183; Claude</text>
+  <text x="1000" y="352" fill="#8aa193" font-size="13">frontier quality;</text>
+  <text x="1000" y="372" fill="#8aa193" font-size="13">only ever sees placeholders</text>
+
+  <path d="M816,300 L972,300" fill="none" stroke="#c4f042" stroke-width="2.5" marker-end="url(#aAccent)"/>
+  <text x="894" y="290" fill="#c4f042" font-size="12.5" text-anchor="middle" font-weight="600" font-family="'IBM Plex Mono',ui-monospace,monospace">sanitized: EMAIL_1, PERSON_1...</text>
+
+  <path d="M972,352 L816,352" fill="none" stroke="#8aa193" stroke-width="2" marker-end="url(#aMuted)"/>
+  <text x="894" y="372" fill="#8aa193" font-size="12.5" text-anchor="middle" font-family="'IBM Plex Mono',ui-monospace,monospace">&#8592; rehydrated response</text>
+
+  <!-- Private Mode loop (stays inside machine) -->
+  <path d="M700,510 C700,556 470,556 470,512" fill="none" stroke="#c4f042" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#aAccent)"/>
+  <text x="585" y="556" fill="#c4f042" font-size="12.5" text-anchor="middle" font-weight="600">Private Mode: crown-jewel prompt answered on-device</text>
+  <text x="585" y="574" fill="#8aa193" font-size="11.5" text-anchor="middle">not forwarded to the cloud</text>
+
+  <!-- legend -->
+  <g font-size="12" font-family="'IBM Plex Mono',ui-monospace,monospace">
+    <rect x="978" y="470" width="14" height="14" rx="3" fill="#c4f042"/>
+    <text x="1000" y="482" fill="#8aa193">local / not forwarded</text>
+    <line x1="978" y1="512" x2="998" y2="512" stroke="#8aa193" stroke-width="2"/>
+    <text x="1006" y="516" fill="#8aa193">crosses to cloud (sanitized only)</text>
+  </g>
+</svg>

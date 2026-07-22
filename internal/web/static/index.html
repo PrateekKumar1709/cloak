@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cloak: the privacy layer for AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="rail">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <div class="name">Cloak</div>
+          <div class="tag">privacy layer for AI</div>
+        </div>
+      </div>
+      <nav>
+        <button class="nav active" data-view="live">Live</button>
+        <button class="nav" data-view="stats">Stats</button>
+        <button class="nav" data-view="entities">Entities</button>
+        <button class="nav" data-view="policy">Policy</button>
+        <button class="nav" data-view="settings">Settings</button>
+      </nav>
+      <div class="rail-foot">
+        <div class="pill" id="health">connecting…</div>
+        <a class="powered" href="https://github.com/lemonade-sdk/lemonade" target="_blank" rel="noreferrer">
+          <span class="dot"></span> Powered by Lemonade
+        </a>
+      </div>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <div class="hero-top">
+          <div>
+            <h1 class="hero-title">Use cloud AI with a local trust layer.</h1>
+            <p class="hero-sub">Cloak is a local firewall for AI traffic. A <strong>Lemonade</strong> model on your own hardware detects secrets &amp; PII before a request leaves, and can answer your most sensitive prompts <strong>entirely on-device</strong>.</p>
+          </div>
+          <div class="trust" id="trust-badge">
+            <div class="trust-num" id="trust-local">0</div>
+            <div class="trust-lbl">prompts answered on-device</div>
+          </div>
+        </div>
+
+        <div class="hero-metrics" id="hero-metrics">
+          <div class="hmetric"><div class="hm-v" id="hm-requests">0</div><div class="hm-k">requests protected</div></div>
+          <div class="hmetric"><div class="hm-v" id="hm-redactions">0</div><div class="hm-k">values redacted</div></div>
+          <div class="hmetric private"><div class="hm-v" id="hm-local">0</div><div class="hm-k">answered on-device</div></div>
+          <div class="hmetric"><div class="hm-v" id="hm-latency">-</div><div class="hm-k">p50 detect</div></div>
+        </div>
+
+        <div class="lemonade-card" id="lemonade-card">
+          <div class="lc-head">
+            <span class="lc-chip">LEMONADE · LOCAL</span>
+            <span class="lc-status" id="lc-status">checking hardware…</span>
+          </div>
+          <div class="lc-grid" id="lc-grid"></div>
+        </div>
+      </section>
+
+      <div class="views-wrap">
+        <header class="top">
+          <h1 id="view-title">Live stream</h1>
+          <p id="view-sub">Every request, what Lemonade redacted, and detection overhead. Real values stay on this machine unless you reveal them.</p>
+        </header>
+
+        <section id="view-live" class="view">
+          <div class="toolbar">
+            <label class="toggle"><input type="checkbox" id="show-sanitized" checked /> Show sanitized</label>
+            <button id="clear-live" class="ghost">Clear</button>
+          </div>
+          <div id="live-feed" class="feed"></div>
+        </section>
+
+        <section id="view-stats" class="view hidden">
+          <div class="stat-grid" id="stat-grid"></div>
+          <div class="panel">
+            <h2>By category</h2>
+            <div id="cat-bars" class="bars"></div>
+          </div>
+        </section>
+
+        <section id="view-entities" class="view hidden">
+          <div class="toolbar">
+            <label class="toggle"><input type="checkbox" id="reveal-entities" /> Reveal real values</label>
+            <button id="refresh-entities" class="ghost">Refresh</button>
+          </div>
+          <table class="table" id="entities-table">
+            <thead><tr><th>Placeholder</th><th>Category</th><th>Value</th><th>Session</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </section>
+
+        <section id="view-policy" class="view hidden">
+          <p class="hint">Change an action and it applies immediately to new requests. On the OpenAI path, <code>block</code> categories are answered locally when Private Mode is on; on Anthropic they are rejected.</p>
+          <div id="policy-grid" class="policy-grid"></div>
+        </section>
+
+        <section id="view-settings" class="view hidden">
+          <div class="panel" id="settings-panel"></div>
+          <div class="panel">
+            <h2>Quick test</h2>
+            <textarea id="test-input" rows="4" placeholder="Paste text with emails, keys, names…"></textarea>
+            <button id="run-test" class="primary">Scan</button>
+            <pre id="test-out" class="code"></pre>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

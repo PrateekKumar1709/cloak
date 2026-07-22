@@ -1,0 +1,81 @@
+# Cloak: Local PII Firewall configuration
+# Copy to ~/.config/cloak/cloak.yaml or ./cloak.yaml
+
+listen: "127.0.0.1:7777"
+
+# Upstream cloud provider (OpenAI-compatible)
+upstream:
+  base_url: "https://api.openai.com/v1"
+  api_key_env: "OPENAI_API_KEY"   # read from env; never commit keys
+  # anthropic_base_url: "https://api.anthropic.com"
+  # anthropic_api_key_env: "ANTHROPIC_API_KEY"
+
+# Local Lemonade detector + Omni Whisper (no cloud key needed)
+# Start with: ./scripts/start-lemonade.sh
+# Model picks (64 GB unified memory):
+#   Qwen3-4B-Instruct-2507-GGUF          : fast default (~1.3s NER)
+#   Qwen3-8B-GGUF                        : stronger, still snappy
+#   Qwen3-30B-A3B-Instruct-2507-GGUF     : best quality/speed at "big" size (~1.5s, MoE)
+#   Qwen3.5-35B-A3B-GGUF                 : fits, but thinking models burn tokens (~7s)
+lemonade:
+  base_url: "http://127.0.0.1:13305/api/v1"
+  model: "Qwen3-4B-Instruct-2507-GGUF"
+  whisper_model: "Whisper-Tiny"
+  # chat_model: ""                    # model used to answer Private Mode prompts (default: model)
+  timeout_ms: 2500
+  enabled: true
+  omni_asr: true
+  # Private Mode: on the OpenAI path, block-policy prompts are answered
+  # by the local Lemonade model instead of being forwarded. Turn off to hard-block.
+  private_mode: true
+
+# Detection behavior
+detection:
+  tier2_fail_open_soft: true   # soft PII: continue if LLM times out
+  fail_closed_secrets: true    # secrets always require Tier-1 coverage
+  cache_message_hashes: true
+
+# Per-category policy: redact | block | allow | audit
+policy:
+  EMAIL: redact
+  PHONE: redact
+  SSN: redact
+  CREDIT_CARD: block
+  AWS_KEY: block
+  GCP_KEY: block
+  GITHUB_TOKEN: block
+  SLACK_TOKEN: block
+  OPENAI_KEY: block
+  STRIPE_KEY: block
+  JWT: redact
+  PRIVATE_KEY: block
+  IP: redact
+  MAC: allow
+  PERSON: redact
+  ORG: redact
+  ADDRESS: redact
+  PROJECT_CODENAME: redact
+  INTERNAL_HOSTNAME: redact
+  MEDICAL: redact
+  FINANCIAL: redact
+  OTHER_ID: redact
+  HIGH_ENTROPY: redact
+  URL_CREDENTIAL: redact
+
+# Strings that are always redacted (project codenames, etc.)
+watchlist:
+  - "Project Nightingale"
+  - "db-prod-03"
+
+# Strings never redacted (your company name, etc.)
+allowlist:
+  - "OpenAI"
+  - "Anthropic"
+
+# Persistence
+persist_entities: false   # reserved; entity map is in-memory for this release
+data_dir: "~/.local/share/cloak"
+
+# Logging
+log_level: info
+audit: true
